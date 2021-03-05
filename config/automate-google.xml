@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<flowlauncher>
+	<flow name="stargazer" baseUrl="http://www.google.com">
+		<navigate index="0" pageName="home" screenshot="true">
+			<fields>
+				<field fieldName="User Name" value="schallapalli" required="true" type="textbox" iframe="false" autofill="false" >
+					<id></id>
+					<name>j_username</name>
+					<cssClass></cssClass>
+					<xpath></xpath>
+					<changeFocusTo></changeFocusTo>
+					<async></async>
+				</field>
+			</fields>
+			<action from="search" to="results" >
+				<name></name>
+				<type>button</type>
+				<xpath></xpath>
+				<value>Login</value>
+				<validate>true</validate>
+				<changeFocusTo></changeFocusTo>
+				<async></async>
+			</action>
+		</navigate>
+		<navigate index="1" pageName="results" screenshot="false">
+			<action from="results" to="desiredResult" >
+				<name></name>
+				<type></type>
+				<xpath></xpath>
+				<value></value>
+				<validate></validate>
+				<changeFocusTo></changeFocusTo>
+				<async></async>
+			</action>
+		</navigate>
+	</flow>
+</flowlauncher>

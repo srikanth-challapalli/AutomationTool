@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<flowlauncher name="autorabit">
+	<flow name="dataloader" baseUrl="https://helpdesk.autorabit.com/portal/home">
+		 <navigate index="0" pageName="landing" >
+			 <fields>
+			 <screenshot isRequired="true" name="landing" format="jpg" fullscreen="false" waitTime="5"/>
+				<action from="landing" to="ticketHome">
+				<name></name>
+				<type>button</type>
+				<xpath>//button[@class='Button__btnFont Button__footerBtn commonStyle__inlineBlock commonStyle__cursor commonStyle__outlineNone']</xpath>
+				<value>Submit a Ticket</value>
+				<validate>true</validate>
+				<changeFocusTo></changeFocusTo>
+				<async>1</async>
+			</action>
+			</fields>
+			
+		</navigate>
+		<navigate index="1" pageName="ticketHome" >
+			<fields>
+				<field fieldName="Contact Name" inputValue="srikanth challapalli" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id>contactId</id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//input[@type='text' and @id='contactId']</xpath>
+					<changeFocusTo>false</changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="Email " inputValue="srikanth.challapalli@autorabit.com" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//input[@id='email']</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+					<field fieldName="Phone " inputValue="8886340909" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//input[@id='phone']</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="Ticket For " inputValue="//li[@data-id='Ticket For_IT and Network']" required="true" inputType="dropdown" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//div[@data-id='Ticket For_-None']</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="Classification " inputValue="//li[@data-id='classification_Service Request']" required="true" inputType="dropdown" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//div[@data-id='classification_-None-']</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="Service Location " inputValue="//li[@data-id='Service Location_India']" required="true" inputType="dropdown" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>/html/body/div[1]/portal/div[5]/div[1]/div/div[8]/div/div/div[1]/div</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				
+					<field fieldName="ETA" inputValue="06-03-2020,MM-dd-yyyy" required="true" inputType="date" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="DateTime__datesStr DateTime__commonStr commonStyle__tAlignCenter commonStyle__inlineBlock commonStyle__cursor"]</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>4</async>
+				</field>
+					<field fieldName="Subject" inputValue="Need Access" required="true" inputType="date" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="subject"]</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>4</async>
+				</field>
+				<screenshot isRequired="true" name="ceasars_login" format="jpg" fullscreen="false" waitTime="0"/>
+			<action from="login" to="New Reservation">
+				<name></name>
+				<type>button</type>
+				<xpath>//input[@type='submit' and @value='Sign In']</xpath>
+				<value>Login</value>
+				<validate>true</validate>
+				<changeFocusTo></changeFocusTo>
+				<async>5</async>
+			</action>
+			</fields>
+			<!-- <print flowName="New_reservation" pages="all" type="Landscape" size="A4" printToFile="true" format="pdf" /> -->
+		
+		</navigate>
+	</flow>
+</flowlauncher>

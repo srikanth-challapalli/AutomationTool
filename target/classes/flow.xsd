@@ -1,0 +1,87 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="flowlauncher">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="flow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="navigate" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="fields">
+                      <xs:complexType>
+                        <xs:choice maxOccurs="unbounded" minOccurs="0">
+                          <xs:element name="screenshot">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="isRequired" use="optional"/>
+                                  <xs:attribute type="xs:string" name="name" use="optional"/>
+                                  <xs:attribute type="xs:string" name="format" use="optional"/>
+                                  <xs:attribute type="xs:string" name="fullscreen" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="field">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="id"/>
+                                <xs:element type="xs:string" name="name"/>
+                                <xs:element type="xs:string" name="cssClass"/>
+                                <xs:element type="xs:string" name="className"/>
+                                <xs:element type="xs:string" name="xpath"/>
+                                <xs:element type="xs:string" name="changeFocusTo"/>
+                                <xs:element type="xs:byte" name="async"/>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="fieldName" use="optional"/>
+                              <xs:attribute type="xs:string" name="inputValue" use="optional"/>
+                              <xs:attribute type="xs:string" name="required" use="optional"/>
+                              <xs:attribute type="xs:string" name="inputType" use="optional"/>
+                              <xs:attribute type="xs:string" name="iframe" use="optional"/>
+                              <xs:attribute type="xs:string" name="autofill" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="action">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="id" minOccurs="0"/>
+                                <xs:element type="xs:string" name="name"/>
+                                <xs:element type="xs:string" name="type" minOccurs="0"/>
+                                <xs:element type="xs:string" name="cssClass" minOccurs="0"/>
+                                <xs:element type="xs:string" name="className" minOccurs="0"/>
+                                <xs:element type="xs:string" name="xpath"/>
+                                <xs:element type="xs:string" name="value" minOccurs="0"/>
+                                <xs:element type="xs:string" name="validate" minOccurs="0"/>
+                                <xs:element type="xs:string" name="changeFocusTo"/>
+                                <xs:element type="xs:string" name="async"/>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="from" use="optional"/>
+                              <xs:attribute type="xs:string" name="to" use="optional"/>
+                              <xs:attribute type="xs:string" name="fieldName" use="optional"/>
+                              <xs:attribute type="xs:string" name="inputValue" use="optional"/>
+                              <xs:attribute type="xs:string" name="required" use="optional"/>
+                              <xs:attribute type="xs:string" name="inputType" use="optional"/>
+                              <xs:attribute type="xs:string" name="iframe" use="optional"/>
+                              <xs:attribute type="xs:string" name="autofill" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:choice>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:byte" name="index" use="optional"/>
+                  <xs:attribute type="xs:string" name="pageName" use="optional"/>
+                  <xs:attribute type="xs:string" name="screenshot" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="name"/>
+            <xs:attribute type="xs:anyURI" name="baseUrl"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="name"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

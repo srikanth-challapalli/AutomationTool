@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<flowlauncher name="reservation">
+	<flow name="ceasars" baseUrl="http://caesars-dev.reztripcall.center/reservation/new">
+		 <navigate index="0" pageName="home" >
+			 <fields>
+			 <screenshot isRequired="true" name="ceasars_launch" format="jpg" fullscreen="false" waitTime="10"/>
+				<action from="home" to="login">
+					<name></name>
+					<type>button</type>
+					<xpath>//input[@type='submit']</xpath>
+					<value>Login</value>
+					<validate>true</validate>
+					<changeFocusTo>false</changeFocusTo>
+					<async>2</async>
+				</action>
+			</fields>
+			
+		</navigate>
+		<navigate index="1" pageName="login" >
+			<fields>
+				<field fieldName="User Name" inputValue="ttuser8" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id>okta-signin-username</id>
+					<name>username</name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//input[@type='text' and @placeholder='Username']</xpath>
+					<changeFocusTo>false</changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="Password" inputValue="Summerfall86" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id>okta-signin-password</id>
+					<name>password</name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//input[@type='password' and @placeholder='Password']</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<screenshot isRequired="true" name="ceasars_login" format="jpg" fullscreen="false" waitTime="0"/>
+			<action from="login" to="New Reservation">
+				<name></name>
+				<type>button</type>
+				<xpath>//input[@type='submit' and @value='Sign In']</xpath>
+				<value>Login</value>
+				<validate>true</validate>
+				<changeFocusTo></changeFocusTo>
+				<async>5</async>
+			</action>
+			</fields>
+			<!-- <print flowName="New_reservation" pages="all" type="Landscape" size="A4" printToFile="true" format="pdf" /> -->
+		</navigate> 
+		<navigate index="2" pageName="New Reservation" >
+			<fields>
+				<!-- <field fieldName="New Reservation Tab" inputValue="New Reservation" required="true" inputType="Tab" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="reservation-new-tab"]/div</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>5</async>
+				</field> -->
+				<field fieldName="Selecting Property" inputValue="   Caesars Palace Las Vegas(CLV) "
+					required="true" inputType="dropdown" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="propertyId-0"]</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>2</async>
+				</field>
+				<field fieldName="Date picker" inputValue="03-10-2019,03-13-2019,MM-dd-yyyy" required="true" inputType="date" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="newResSearchForm"]/div[1]/div[2]/div/div[3]/a#//span[contains(@aria-label,'March 10, 2019')]#//span[contains(@aria-label,'March 13, 2019')]</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>4</async>
+				</field>
+				<screenshot isRequired="true" name="ceasars_home" format="jpg" fullscreen="false" waitTime="10" />
+				<action from="New Reservation" to="Availability Search">
+					<name></name>
+					<type>button</type>
+					<xpath>//*[@id="search-btn-0"]</xpath>
+					<value>search</value>
+					<validate>true</validate>
+					<changeFocusTo></changeFocusTo>
+					<async>2</async>
+				</action>
+			</fields>
+		</navigate>
+		<navigate index="3" pageName="Availability Search" >
+			<fields>
+				<screenshot isRequired="true" name="ceasars_available_ratePlans" format="jpg" fullscreen="false" waitTime="10"/>
+				<action from="Availability Search" to="select rate plan">
+					<name></name>
+					<type>button</type>
+					<xpath>(//a[contains(text(),'Select')])[29]</xpath>
+					<value>select</value>
+					<validate>true</validate>
+					<changeFocusTo></changeFocusTo>
+					<async>5</async>
+				</action>
+				<action from="select rate plan" to="Add room">
+					<name></name>
+					<type>button</type>
+					<xpath>//*[@id="reservation-tabContent"]/app-new-reservation/div[2]/div/ccc-shopping-cart/div/nav/div[2]/div/div/div[2]/a</xpath>
+					<value>Add:Room 1</value>
+					<validate>true</validate>
+					<changeFocusTo></changeFocusTo>
+					<async>5</async>
+				</action>
+				<screenshot isRequired="true" name="ceasars_ratePlan_selection" format="jpg" fullscreen="true" waitTime="10"/>
+				<action from="Add room" to="Complete reservation">
+					<name></name>
+					<type>button</type>
+					<xpath>(//button[contains(text(),'Complete Reservation')])</xpath>
+					<value>Complete Reservation</value>
+					<validate>true</validate>
+					<changeFocusTo></changeFocusTo>
+					<async>5</async>
+				</action>
+				<field fieldName="Override Code" inputValue="Test" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="password-0"]</xpath>
+					<changeFocusTo>false</changeFocusTo>
+					<async>1</async>
+				</field>
+				<!--  <field fieldName="Override Code" inputValue="Test" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="true">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="password-1"]</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>5</async>
+				</field>   -->
+				<action from="Complete reservation" to="Complete Reservation Details">
+					<name></name>
+					<type>button</type>
+					<xpath>(//button[contains(text(),'Submit')])[3]</xpath>
+					<value>Submit</value>
+					<validate>true</validate>
+					<changeFocusTo></changeFocusTo>
+					<async>5</async>
+				</action>
+		<!-- 	<action from="override" to="Complete Reservation Details">
+					<name></name>
+					<type>button</type>
+					<xpath>//overrides-reservation/div/div/div[2]/div[2]/button</xpath>
+					<value>select</value>
+					<validate>true</validate>
+					<changeFocusTo></changeFocusTo>
+					<async></async>
+				</action> -->
+			</fields>
+			
+		</navigate>
+		<navigate index="4" pageName="Complete Reservation Details" >
+			
+			<fields>
+				<field fieldName="Last Name" inputValue="Challapalli" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name>lastName</name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath></xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="First Name" inputValue="Srikanth" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name>firstName</name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath></xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="Phone Number" inputValue="9999999999" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id>phone-input</id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath></xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="Phone Type" inputValue="Business" required="true" inputType="dropdown" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="reservation-tabContent"]/complete-reservation/div/div[1]/div/div/div[1]/div[2]/new-reservation-guest-details/div[8]/div/div[1]/div[5]/div/div/div[2]/select</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field> 
+			 	<field fieldName="Address lane 1" inputValue="Albert street" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>(//input[@name='addressLine1'])[1]</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field> 
+				 <field fieldName="Address lane 2" inputValue="Victoria lane" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>(//input[@name='addressLine2'])[1]</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<!--  <field fieldName="Country" inputValue="India" required="true" inputType="ng-select" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="mailing-address-input"]/div/ng-select#//*[@id="mailing-address-input"]/div/ng-select/select-dropdown/div/div[1]/input</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async></async>
+				</field>   -->
+				<field fieldName="City" inputValue="British Colombia" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//input[@name='city' and @placeholder='City']</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="State" inputValue="Vancouver,BC" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>(//input[@placeholder='State'])[1]</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="zipcode" inputValue="V30067B" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//input[@name='zip' and @placeholder='ZipCode']</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+			 	<!-- <field fieldName="Company" inputValue="Travel Tripper" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id>company-input</id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//input[@id='company-input']</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>  -->
+				<field fieldName="Arrival Information " inputValue="Carrying Pet" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>(//guest-preference//input[@type='text'])[1]</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>5</async>
+				</field>
+				<!--  <field fieldName="Favorite Color" inputValue="red" required="true" inputType="radio" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>(//guest-preference//input[@type='radio'])[1]</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>  -->
+				
+				<field fieldName="Room Request" inputValue="away from elevator" required="true" inputType="checkbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//guest-preference/div/div[3]/div/div[6]/input</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="Free Text" inputValue="Automation Script" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="reservation-tabContent"]/complete-reservation/div/div[1]/div/div/div[3]/div[2]/guest-preference/div/div[4]/div/input</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="Test GP new" inputValue="Guest profile" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="reservation-tabContent"]/complete-reservation/div/div[1]/div/div/div[3]/div[2]/guest-preference/div/div[6]/div/input</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="Test GPQ" inputValue="Selenium script" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="reservation-tabContent"]/complete-reservation/div/div[1]/div/div/div[3]/div[2]/guest-preference/div/div[8]/div/input</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<field fieldName="Primary Email" inputValue="schallapalli@traveltripper.com" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name>primaryEmail</name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath></xpath>
+					<changeFocusTo></changeFocusTo>
+					<async></async>
+				</field>
+				<!-- <field fieldName="Secondary Email" inputValue="caesars.reservationflow@traveltripper.com" required="true" inputType="textbox" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name>secondaryEmail</name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath></xpath>
+					<changeFocusTo></changeFocusTo>
+					<async></async>
+				</field> -->
+				<screenshot isRequired="true" name="ceasars_reservation_completion" format="jpg" fullscreen="true" waitTime="10"/>
+				<action from="Complete Reservation Details" to="Add Primary Card Details">
+					<name></name>
+					<type>button</type>
+					<xpath>(//button[contains(text(),'Complete Reservation')])</xpath>
+					<value></value>
+					<validate>true</validate>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</action>
+				<field fieldName="Credit card Encrypted String" inputValue="02C100C037001C079692;461622******2257=2001:***?*065000=84C9E9C4BC444DB73242B93C08683DA8E20D4BD9BBCFA9A06CC1AA0268F3E3D200000000000000000000000000000000000000003733315438323137383162994950010001A00007400003" required="true" inputType="textarea" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="no-guarantee-modal"]/div/div/div[2]/textarea</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field>
+				<action from="Add Primary Card Details" to="Complete Reservation Details">
+					<name></name>
+					<type>button</type>
+					<xpath>(//button[contains(text(),'Save changes ')])[2]</xpath>
+					<value></value>
+					<validate>true</validate>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</action>
+		
+		<!-- 	<field fieldName="Min deposite Amount" inputValue="10" required="true" inputType="textbox" iframe="false" autofill="true">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//input[@type='number' and @placeholder='Amount']</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</field> -->
+			<!-- 	<action from="Complete Reservation Details" to="Add-ons and Comments">
+					<name></name>
+					<type>button</type>
+					<xpath>//*[@id="reservation-tabContent"]/complete-reservation//button[contains(text(),' Add-ons and Comments ')]</xpath>
+					<value></value>
+					<validate>true</validate>
+					<changeFocusTo></changeFocusTo>
+					<async></async>
+				</action> -->
+				<!-- <field fieldName="Addons dropdown" inputValue="" required="true" inputType="textarea" iframe="false" autofill="false" proceedIfNotPresent="false">
+					<id></id>
+					<name></name>
+					<cssClass></cssClass>
+					<className></className>
+					<xpath>//*[@id="routeTo"]</xpath>
+					<changeFocusTo></changeFocusTo>
+					<async></async>
+				</field> -->
+				<screenshot isRequired="true" name="ceasars_reservation_success" format="jpg" fullscreen="true" waitTime="5"/>
+			<!-- 	<action from="Complete Reservation Details" to="Complete Reservation Success">
+					<name></name>
+					<type>button</type>
+					<xpath>//complete-reservation//button[@type='submit' and @class='btn btn-primary btn-lg w-25']</xpath>
+					<value></value>
+					<validate>true</validate>
+					<changeFocusTo></changeFocusTo>
+					<async>1</async>
+				</action>
+				<screenshot isRequired="true" name="ceasars_reservation_success" format="jpg" fullscreen="false" waitTime="40"/> -->
+			</fields>
+		</navigate>
+	</flow>
+</flowlauncher>
